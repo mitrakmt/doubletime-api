@@ -1,0 +1,7 @@
+{
+  "name": "Auth0-demo-backend",
+  "description": "Server for the auth0 demos",
+  "engines": {
+    "node": "9.3.0"
+  }
+}
