@@ -1,13 +1,16 @@
-import { Router } from 'express';
-import { checkJwt } from '../middleware/auth'
-
-import userController from '../controllers/user';
+const Router = require('express')
+const userController = require('../controllers/user')
 
 const userRoute = Router();
 
 userRoute.route('/')
-  .get(checkJwt, userController.findUser)
-  .post(checkJwt, userController.createUser)
-  .delete(checkJwt, userController.deleteUser)
+  .get(userController.findUser)
+  .post(userController.createUser)
+  .patch(userController.updateUser)
+  .delete(userController.disableUser)
 
-export default userRoute
+userRoute.route('/admin')
+  .post(userController.createAdmin)
+
+
+module.exports = userRoute
