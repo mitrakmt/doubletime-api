@@ -1,5 +1,6 @@
 const Router = require('express')
 const userController = require('../controllers/user')
+const verifyJwt = require('../middleware/auth')
 
 const userRoute = Router();
 

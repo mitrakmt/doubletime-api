@@ -1,5 +1,6 @@
 const Router = require('express')
 const teamController = require('../controllers/team')
+const verifyJwt = require('../middleware/auth')
 
 const teamRoute = Router();
 

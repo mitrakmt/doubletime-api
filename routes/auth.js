@@ -1,15 +1,16 @@
 const Router = require('express')
 const authController = require('../controllers/auth')
+const verifyJwt = require('../middleware/auth')
 
 const authRoute = Router();
 
-authRoute.route('/')
+authRoute.route(verifyJwt, '/')
   .delete(authController.logout)
 
-authRoute.route('/login')
+authRoute.route(verifyJwt, '/login')
   .post(authController.login)
 
-authRoute.route('/signup')
+authRoute.route(verifyJwt, '/signup')
   .post(authController.signup)
 
 module.exports = authRoute
