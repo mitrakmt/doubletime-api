@@ -1,6 +1,6 @@
 {
-  "name": "Auth0-demo-backend",
-  "description": "Server for the auth0 demos",
+  "name": "doubletime-api",
+  "description": "Server for the doubletime project",
   "engines": {
     "node": "9.3.0"
   }
