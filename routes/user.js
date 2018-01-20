@@ -13,5 +13,4 @@ userRoute.route('/')
 userRoute.route('/admin')
   .post(userController.createAdmin)
 
-
 module.exports = userRoute

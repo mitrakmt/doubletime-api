@@ -12,7 +12,7 @@ function createUser(email) {
 
 function findUser(userId) {
   return User.findOne({
-    sub
+    _id: userId
   })
     .then((user, err) => {
       if (err) return err;
@@ -38,7 +38,7 @@ function updateUser(userId) {
 
 function deleteUser(userId) {
   return User.remove({
-    sub
+    _id: userId
   })
     .then((err) => {
       if (err) return err;
