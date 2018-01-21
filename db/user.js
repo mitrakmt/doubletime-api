@@ -1,29 +1,23 @@
-const mongoose = require('mongoose')
-mongoose.Promise = Promise;
+let Sequelize = require('sequelize')
 
-const userSchema = new mongoose.Schema({
-  id: {
-    type: String,
-    unique: true
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  role: {
-    type: String,
-    required: true
-  },
-  first_name: {
-    type: String,
-  },
-  last_name: {
-    type: String
-  },
-  team: {
-    type: Number
-  }
-});
+module.exports = (db) => {
+  const Users = db.define('users', {
+    first_name: {
+      type: Sequelize.STRING
+    },
+    last_name: {
+      type: Sequelize.STRING
+    },
+    email: {
+      type: Sequelize.STRING
+    },
+    role: {
+      type: Sequelize.STRING
+    },
+    imageteamUrl: {
+      type: Sequelize.NUMBER
+    }
+  })
 
-module.exoprts = mongoose.model('User', userSchema)
+  return Users
+}

@@ -7,7 +7,7 @@ const cors = require('cors')
 const routes = require('./routes')
 const jwt = require('express-jwt')
 const PORT = process.env.PORT || 3001
-const db = './db'
+const db = require('./db')
 const app = express()
 
 app.use(logger('dev'))

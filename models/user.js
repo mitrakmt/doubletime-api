@@ -10,15 +10,17 @@ function createUser(email) {
   })
 }
 
-function findUser(userId) {
-  return User.findOne({
-    _id: userId
+function findUser(id) {
+  return Users.findOne({
+    where: {
+      id
+    }
   })
-    .then((user, err) => {
-      if (err) return err;
-      return {
-        user
-      }
+    .then(user => {
+      return user
+    })
+    .catch(err => {
+      return { err: err }
     })
 }
 
@@ -36,15 +38,17 @@ function updateUser(userId) {
     })
 }
 
-function deleteUser(userId) {
-  return User.remove({
-    _id: userId
+function deleteUser(id) {
+  return Users.findOne({
+    where: {
+      id
+    }
   })
-    .then((err) => {
-      if (err) return err;
-      return {
-        message: 'success'
-      }
+    .then(user => {
+      return user.destroy()
+        .then(status => {
+          return 'User record deleted'
+        })
     })
 }
 
