@@ -2,18 +2,18 @@ const _ = require('lodash');
 const User = require('../db/user')
 
 function createUser(email) {
-  return User.create(user, (err, res) => {
-    if (err) return err;
-    return {
-      res
-    }
-  })
+  // return User.create(user, (err, res) => {
+  //   if (err) return err;
+  //   return {
+  //     res
+  //   }
+  // })
 }
 
 function findUser(id) {
   return Users.findOne({
     where: {
-      id
+      [Op.eq]: id
     }
   })
     .then(user => {
@@ -25,23 +25,23 @@ function findUser(id) {
 }
 
 function updateUser(userId) {
-  return User.findOneAndUpdate({
-    _id: userId
-  }, {
-      $push: {
+  // return User.findOneAndUpdate({
+  //   _id: userId
+  // }, {
+  //     $push: {
 
-      }
-    })
-    .then((user, err) => {
-      if (err) return err;
-      return user
-    })
+  //     }
+  //   })
+  //   .then((user, err) => {
+  //     if (err) return err;
+  //     return user
+  //   })
 }
 
 function deleteUser(id) {
   return Users.findOne({
     where: {
-      id
+      [Op.eq]: id
     }
   })
     .then(user => {

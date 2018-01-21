@@ -15,7 +15,7 @@ module.exports = (db) => {
       type: Sequelize.STRING
     },
     imageteamUrl: {
-      type: Sequelize.NUMBER
+      type: Sequelize.INTEGER
     }
   })
 

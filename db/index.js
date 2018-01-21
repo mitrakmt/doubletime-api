@@ -3,8 +3,8 @@ let db = require('./db.config')
 let Sequelize = require('sequelize')
 
 // Set table schema
-let Teams = require('./teams')(db)
-let Users = require('./users')(db)
+let Teams = require('./team')(db)
+let Users = require('./user')(db)
 
 // Create join tables
 const UsersTeams = db.define('UsersTeams', {
@@ -24,8 +24,8 @@ db.sync().then(() => {
 })
 
 module.exports = {
-  db: db,
-  Teams: Teams,
-  Users: Users,
-  UsersTeams: UsersTeams
+  db,
+  Teams,
+  Users,
+  UsersTeams
 }
