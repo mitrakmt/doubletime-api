@@ -9,12 +9,13 @@ module.exports = (db) => {
       type: Sequelize.STRING
     },
     email: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING,
+      unique: true
     },
     role: {
       type: Sequelize.STRING
     },
-    imageteamUrl: {
+    team_id: {
       type: Sequelize.INTEGER
     }
   })

@@ -12,8 +12,8 @@ const UsersTeams = db.define('UsersTeams', {
 })
 
 // Teams:Users (n:m)
-Teams.belongsToMany(Users, { through: UsersTeams, foreignKey: 'teamId' })
-Users.belongsToMany(Teams, { through: UsersTeams, foreignKey: 'userId' })
+Teams.belongsToMany(Users, { through: UsersTeams, foreignKey: 'team_id' })
+Users.belongsToMany(Teams, { through: UsersTeams, foreignKey: 'team_id' })
 
 // // HELPER TO DROP ALL TABLES
 // db.sync({force: true}).then(() => {

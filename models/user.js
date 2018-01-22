@@ -1,15 +1,14 @@
 const _ = require('lodash');
-const User = require('../db/user')
+const User = require('../db').Users
 
-function createUser(email, teamId) {
-  User
-    .findOrCreate({ where: { email, teamId } })
+function createUser(email, team_id, role, first_name, last_name) {
+  return User.findOrCreate({ where: { email, team_id, role, first_name, last_name } })
     .spread((user, created) => {
       console.log('user', user)
-      console.log(user.get({
-        plain: true
-      }))
       console.log('created', created)
+      return user.get({
+        plain: true
+      })
     })
 }
 
