@@ -1,13 +1,16 @@
 const _ = require('lodash');
 const User = require('../db/user')
 
-function createUser(email) {
-  // return User.create(user, (err, res) => {
-  //   if (err) return err;
-  //   return {
-  //     res
-  //   }
-  // })
+function createUser(email, teamId) {
+  User
+    .findOrCreate({ where: { email, teamId } })
+    .spread((user, created) => {
+      console.log('user', user)
+      console.log(user.get({
+        plain: true
+      }))
+      console.log('created', created)
+    })
 }
 
 function findUser(id) {

@@ -9,17 +9,23 @@ const userController = {}
  * @memberof module:user
  */
 userController.createUser = (req, res) => {
-
+  user.createUser(req.body.email, req.body.team)
+    .then(status => {
+      res.status(200).send(status)
+    })
 }
 
 /**
- * Create user
+ * Find user
  * @name get/user
  * @function
  * @memberof module:user
  */
 userController.findUser = (req, res) => {
-
+  user.findUser(req.body.email, req.body.team)
+    .then(status => {
+      res.status(200).send(status)
+    })
 }
 
 /**
@@ -29,7 +35,10 @@ userController.findUser = (req, res) => {
  * @memberof module:user
  */
 userController.updateUser = (req, res) => {
-
+  user.updateUser(req.body.email)
+    .then(status => {
+      res.status(200).send(status)
+    })
 }
 
 /**
@@ -39,17 +48,23 @@ userController.updateUser = (req, res) => {
  * @memberof module:user
  */
 userController.disableUser = (req, res) => {
-
+  user.disableUser(req.user.id)
+    .then(status => {
+      res.status(200).send(status)
+    })
 }
 
 /**
- * Create user
+ * Create admin user
  * @name post/user/admin
  * @function
  * @memberof module:user
  */
 userController.createAdmin = (req, res) => {
-
+  user.createAdin(req.body.email, req.body.team)
+    .then(status => {
+      res.status(200).send(status)
+    })
 }
 
 module.exports = userController
