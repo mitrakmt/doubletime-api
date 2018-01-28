@@ -2,6 +2,10 @@ const quickbooksController = {}
 const simpleOauthModule = require('simple-oauth2')
 
 quickbooksController.oauth_auth = (req, res) => {
+  console.dir('ojb', {
+    id: process.env.QBO_CLIENT_ID,
+    secret: process.env.QBO_CLIENT_SECRET,
+  })
   const oauth2 = simpleOauthModule.create({
     client: {
       id: process.env.QBO_CLIENT_ID,
