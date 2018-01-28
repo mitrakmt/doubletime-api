@@ -14,7 +14,7 @@ quickbooksController.oauth_auth = (req, res) => {
   });
   // Authorization uri definition
   const authorizationUri = oauth2.authorizationCode.authorizeURL({
-    redirect_uri: 'http://localhost:3001/api/quicbooks/oauth_callback',
+    redirect_uri: 'http://localhost:3001/api/quickbooks/oauth_callback',
     scope: 'com.intuit.quickbooks.accounting com.intuit.quickbooks.payment openid profile email phone address',
   });
 
@@ -26,6 +26,7 @@ quickbooksController.oauth_auth = (req, res) => {
 quickbooksController.oauth_callback = (req, res) => {
   // Callback service parsing the authorization token and asking for the access token
   const code = req.query.code;
+  console.log('code', code)
   const options = {
     code,
   };
