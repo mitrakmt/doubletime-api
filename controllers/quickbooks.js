@@ -1,16 +1,16 @@
 const quickbooksController = {}
 const simpleOauthModule = require('simple-oauth2')
-const oauth2 = simpleOauthModule.create({
-  client: {
-    id: process.env.QBO_CLIENT_ID,
-    secret: process.env.QBO_CLIENT_SECRET,
-  },
-  auth: {
-    tokenHost: 'http://localhost:3000'
-  },
-});
 
 quickbooksController.oauth_auth = (req, res) => {
+  const oauth2 = simpleOauthModule.create({
+    client: {
+      id: process.env.QBO_CLIENT_ID,
+      secret: process.env.QBO_CLIENT_SECRET,
+    },
+    auth: {
+      tokenHost: 'http://localhost:3000'
+    },
+  });
   // Authorization uri definition
   const authorizationUri = oauth2.authorizationCode.authorizeURL({
     redirect_uri: 'http://localhost:3001/api/quicbooks/oauth_callback',
